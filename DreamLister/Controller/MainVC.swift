@@ -59,7 +59,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         do {
             try controller.performFetch()
             //Generate Data
-            if controller.sections![0].numberOfObjects == 0 {
+            if controller.fetchedObjects!.isEmpty {
                 self.generateTestData()
                 try controller.performFetch()
             }
