@@ -176,7 +176,7 @@
         <!--Add/Edit-->
         <scene sceneID="FMa-zE-lfz">
             <objects>
-                <viewController id="B0X-zl-Vgm" sceneMemberID="viewController">
+                <viewController id="B0X-zl-Vgm" customClass="ItemDetailVC" customModule="DreamLister" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SoM-gV-G7l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -233,6 +233,10 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="oDI-eW-igA"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="B0X-zl-Vgm" id="cg0-Ks-Da0"/>
+                                    <outlet property="delegate" destination="B0X-zl-Vgm" id="Oui-Cr-cPr"/>
+                                </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYu-K3-gAT">
                                 <rect key="frame" x="30" y="607" width="315" height="40"/>
@@ -275,6 +279,12 @@
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="pickerView" destination="55Q-7q-pPg" id="4ac-MO-YnB"/>
+                        <outlet property="tfDetails" destination="hzc-xO-Abd" id="7TR-Y4-rSc"/>
+                        <outlet property="tfPrice" destination="wED-G4-PLi" id="grL-kk-dUE"/>
+                        <outlet property="tfTitle" destination="nZV-9P-b3L" id="2mV-YB-tBZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ni1-xz-rsd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
