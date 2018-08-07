@@ -91,3 +91,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+//Creat appDel and context when App run. Its used for core data in app
+let appDel = UIApplication.shared.delegate as! AppDelegate
+let context = appDel.persistentContainer.viewContext
+
+
+
+
+
+
+
+
