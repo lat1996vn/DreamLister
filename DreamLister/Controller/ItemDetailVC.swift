@@ -21,7 +21,10 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if stores.isEmpty {
+            generateTestData()
+        }
+        getStores()
         // Do any additional setup after loading the view.
     }
 

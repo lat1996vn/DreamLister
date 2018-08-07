@@ -17,7 +17,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //genarateTestData()
         self.attemptFetch()
     }
     
@@ -58,6 +57,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         self.controller = controller
         do {
             try controller.performFetch()
+            // genarate data if have not data
+            if controller.sections == nil {
+                self.genarateTestData()
+                try controller.performFetch()
+            }
         } catch {
             let error = error as NSError
             print("\(error)")
