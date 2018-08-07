@@ -21,9 +21,6 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if stores.isEmpty {
-            generateTestData()
-        }
         getStores()
         // Do any additional setup after loading the view.
     }
@@ -45,11 +42,32 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         //update when select
     }
     
+    @IBAction func btnSavePressed(_ sender: Any) {
+        let item = Item(context: context)
+        
+        if let title = tfTitle.text {
+            item.title = title
+        }
+        if let price = tfPrice.text as NSString? {
+            item.price = price.doubleValue
+        }
+        if let details = tfDetails.text {
+            item.details = details
+        }
+        item.toStore = stores[pickerView.selectedRow(inComponent: 0)]
+        appDel.saveContext()
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
     func getStores() {
         let fetchRequest: NSFetchRequest<Store> = Store.fetchRequest()
         
         do {
             self.stores = try context.fetch(fetchRequest)
+            if stores.isEmpty {
+                generateTestData()
+                self.stores = try context.fetch(fetchRequest)
+            }
             self.pickerView.reloadAllComponents()
         } catch {
             //handle the error

@@ -18,6 +18,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     override func viewDidLoad() {
         super.viewDidLoad()
         self.attemptFetch()
+        controller.delegate = self
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -57,9 +58,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         self.controller = controller
         do {
             try controller.performFetch()
-            // genarate data if have not data
-            if controller.sections == nil {
-                self.genarateTestData()
+            //Generate Data
+            if controller.sections![0].numberOfObjects == 0 {
+                self.generateTestData()
                 try controller.performFetch()
             }
         } catch {
@@ -105,7 +106,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
             break
         }
     }
-    func genarateTestData() {
+    func generateTestData() {
         let item = Item(context: context)
         item.title = "Mac"
         item.price = 1000
