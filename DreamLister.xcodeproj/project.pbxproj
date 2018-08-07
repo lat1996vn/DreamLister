@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2509BECF211951D400516E54 /* ItemDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509BECE211951D400516E54 /* ItemDetailVC.swift */; };
+		2509BED1211958A000516E54 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2509BED0211958A000516E54 /* CustomTextField.swift */; };
 		2528B4592117F1CE007342C8 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528B4582117F1CE007342C8 /* MaterialView.swift */; };
 		2528B45B2117FA04007342C8 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528B45A2117FA04007342C8 /* ItemCell.swift */; };
 		259D844F2117279500B831FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259D844E2117279500B831FC /* AppDelegate.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2509BECE211951D400516E54 /* ItemDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailVC.swift; sourceTree = "<group>"; };
+		2509BED0211958A000516E54 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTextField.swift; path = "../../../../../Desktop/devslopes-ios10/06 Data Persistence  Core Data/attached_files/114 iOS 10 App DreamLister Part 12 - ItemType Challenge/DreamLister/DreamLister/CustomTextField.swift"; sourceTree = "<group>"; };
 		2528B4582117F1CE007342C8 /* MaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		2528B45A2117FA04007342C8 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		259D844B2117279500B831FC /* DreamLister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamLister.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,9 +61,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2509BECD2119513A00516E54 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				259D84502117279500B831FC /* MainVC.swift */,
+				2509BECE211951D400516E54 /* ItemDetailVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		2528B4572117F191007342C8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2509BED0211958A000516E54 /* CustomTextField.swift */,
 				2528B4582117F1CE007342C8 /* MaterialView.swift */,
 				2528B45A2117FA04007342C8 /* ItemCell.swift */,
 			);
@@ -88,7 +102,7 @@
 				2528B4572117F191007342C8 /* View */,
 				259D847321175AA200B831FC /* Model */,
 				259D844E2117279500B831FC /* AppDelegate.swift */,
-				259D84502117279500B831FC /* MainVC.swift */,
+				2509BECD2119513A00516E54 /* Controller */,
 				259D84522117279500B831FC /* Main.storyboard */,
 				259D84582117279600B831FC /* Assets.xcassets */,
 				259D845A2117279600B831FC /* LaunchScreen.storyboard */,
@@ -202,9 +216,11 @@
 				259D846E21175A9A00B831FC /* ItemType+CoreDataProperties.swift in Sources */,
 				259D847021175A9A00B831FC /* Item+CoreDataProperties.swift in Sources */,
 				259D846F21175A9A00B831FC /* Item+CoreDataClass.swift in Sources */,
+				2509BECF211951D400516E54 /* ItemDetailVC.swift in Sources */,
 				259D84572117279500B831FC /* DreamLister.xcdatamodeld in Sources */,
 				259D847121175A9A00B831FC /* Image+CoreDataClass.swift in Sources */,
 				259D847221175A9A00B831FC /* Image+CoreDataProperties.swift in Sources */,
+				2509BED1211958A000516E54 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
