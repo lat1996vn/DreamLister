@@ -27,6 +27,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         }
         return 0
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sections = controller.sections {
             let sectionInfo = sections[section]
@@ -34,6 +35,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         }
         return 0
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as? ItemCell {
             configureCell(cell: cell, indexPath: indexPath)
@@ -41,14 +43,31 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         }
         return UITableViewCell()
     }
+    
     func configureCell(cell: ItemCell, indexPath: IndexPath) {
         //UpdateCell
         let item = controller.object(at: indexPath)
         cell.configureCell(item: item)
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let obj = controller.fetchedObjects, obj.count > 0 {
+            performSegue(withIdentifier: "ToEditItem", sender: obj[indexPath.row])
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToEditItem" {
+            if let detination = segue.destination as? ItemDetailVC {
+                detination.itemToEdit = sender as? Item
+            }
+        }
+    }
+    
     func attemptFetch() {
         let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
         let dateSort = NSSortDescriptor(key: "created", ascending: false)
@@ -68,13 +87,16 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
             print("\(error)")
         }
     }
+    
     func  controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
         
     }
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
+    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
         switch type {
@@ -82,7 +104,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
             if let indexPath = newIndexPath {
                 tableView.insertRows(at: [indexPath], with: .fade)
             }
-            break
+            break	
             
         case .delete:
             if let indexPath = indexPath {
@@ -106,6 +128,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
             break
         }
     }
+    
     func generateTestData() {
         let item = Item(context: context)
         item.title = "Mac"

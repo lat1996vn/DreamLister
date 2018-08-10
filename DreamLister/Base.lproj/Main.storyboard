@@ -136,14 +136,14 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ozW-aS-Ta8">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="B0X-zl-Vgm" kind="show" id="Wjw-gM-0e4"/>
+                                <segue destination="B0X-zl-Vgm" kind="show" identifier="ToAddItem" id="Wjw-gM-0e4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="segmentedControl" destination="c3d-C0-HCq" id="Cut-Ns-iQh"/>
                         <outlet property="tableView" destination="3WE-fd-Ks9" id="Ms1-sV-B8a"/>
-                        <segue destination="B0X-zl-Vgm" kind="show" id="L9w-UM-57T"/>
+                        <segue destination="B0X-zl-Vgm" kind="show" identifier="ToEditItem" id="L9w-UM-57T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -301,6 +301,6 @@
         <image name="tesla" width="800" height="489"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wjw-gM-0e4"/>
+        <segue reference="L9w-UM-57T"/>
     </inferredMetricsTieBreakers>
 </document>

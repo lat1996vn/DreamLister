@@ -17,11 +17,12 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     @IBOutlet weak var tfDetails: CustomTextField!
     
     var stores = [Store]()
-    
+    var itemToEdit: Item?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getStores()
+        loadItemData()
         // Do any additional setup after loading the view.
     }
 
@@ -43,8 +44,12 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     @IBAction func btnSavePressed(_ sender: Any) {
-        let item = Item(context: context)
-        
+        var item: Item!
+        if itemToEdit == nil {
+            item = Item(context: context)
+        } else {
+            item = itemToEdit
+        }
         if let title = tfTitle.text {
             item.title = title
         }
@@ -71,6 +76,20 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
             self.pickerView.reloadAllComponents()
         } catch {
             //handle the error
+        }
+    }
+    
+    func loadItemData() {
+        if let item = itemToEdit {
+            tfTitle.text = item.title
+            tfPrice.text = "\(item.price)"
+            tfDetails.text = item.details
+            for index in 0..<self.stores.count {
+                if item.toStore?.name == stores[index].name {
+                    pickerView.selectRow(index, inComponent: 0, animated: false)
+                    break
+                }
+            }
         }
     }
     
