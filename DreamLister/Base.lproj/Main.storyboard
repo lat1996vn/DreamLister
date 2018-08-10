@@ -282,6 +282,9 @@
                     <navigationItem key="navigationItem" title="Add/Edit" id="ySu-QM-ngS">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="trash" id="3FL-hg-fx4">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="btnDeletePressed:" destination="B0X-zl-Vgm" id="tZE-eU-UZg"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

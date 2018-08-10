@@ -64,19 +64,12 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         _ = navigationController?.popViewController(animated: true)
     }
     
-    func getStores() {
-        let fetchRequest: NSFetchRequest<Store> = Store.fetchRequest()
-        
-        do {
-            self.stores = try context.fetch(fetchRequest)
-            if stores.isEmpty {
-                generateTestData()
-                self.stores = try context.fetch(fetchRequest)
-            }
-            self.pickerView.reloadAllComponents()
-        } catch {
-            //handle the error
+    @IBAction func btnDeletePressed(_ sender: UIBarButtonItem) {
+        if itemToEdit != nil {
+            context.delete(itemToEdit!)
+            appDel.saveContext()
         }
+        _ = navigationController?.popViewController(animated: true)
     }
     
     func loadItemData() {
@@ -90,6 +83,21 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
                     break
                 }
             }
+        }
+    }
+    
+    func getStores() {
+        let fetchRequest: NSFetchRequest<Store> = Store.fetchRequest()
+        
+        do {
+            self.stores = try context.fetch(fetchRequest)
+            if stores.isEmpty {
+                generateTestData()
+                self.stores = try context.fetch(fetchRequest)
+            }
+            self.pickerView.reloadAllComponents()
+        } catch {
+            //handle the error
         }
     }
     
