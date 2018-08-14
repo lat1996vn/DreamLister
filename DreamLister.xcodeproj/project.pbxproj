@@ -101,8 +101,8 @@
 			children = (
 				2528B4572117F191007342C8 /* View */,
 				259D847321175AA200B831FC /* Model */,
-				259D844E2117279500B831FC /* AppDelegate.swift */,
 				2509BECD2119513A00516E54 /* Controller */,
+				259D844E2117279500B831FC /* AppDelegate.swift */,
 				259D84522117279500B831FC /* Main.storyboard */,
 				259D84582117279600B831FC /* Assets.xcassets */,
 				259D845A2117279600B831FC /* LaunchScreen.storyboard */,

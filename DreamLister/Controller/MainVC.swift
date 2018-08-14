@@ -19,6 +19,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         super.viewDidLoad()
         self.attemptFetch()
         controller.delegate = self
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
