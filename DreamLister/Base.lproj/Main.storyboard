@@ -181,13 +181,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePick" translatesAutoresizingMaskIntoConstraints="NO" id="2WP-6n-bCX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="2WP-6n-bCX">
                                 <rect key="frame" x="15" y="84" width="115" height="115"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="115" id="3ks-Bg-hT6"/>
                                     <constraint firstAttribute="width" constant="115" id="tr0-sc-XYb"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqC-yu-dxl">
+                                <rect key="frame" x="15" y="84" width="115" height="115"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="Zae-NH-N7V"/>
+                                    <constraint firstAttribute="height" constant="115" id="lic-fb-czS"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="btnAddPhoto:" destination="B0X-zl-Vgm" eventType="touchUpInside" id="69z-s0-KBa"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nZV-9P-b3L" customClass="CustomTextField" customModule="DreamLister" customModuleProvider="target">
                                 <rect key="frame" x="145" y="94" width="220" height="40"/>
                                 <color key="backgroundColor" red="0.91626348350253806" green="0.91626348350253806" blue="0.91626348350253806" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -271,16 +281,18 @@
                             <constraint firstItem="wED-G4-PLi" firstAttribute="top" secondItem="nZV-9P-b3L" secondAttribute="bottom" constant="25" id="ZXW-iZ-jWg"/>
                             <constraint firstItem="2WP-6n-bCX" firstAttribute="top" secondItem="9CZ-dV-G2O" secondAttribute="top" constant="20" id="dKc-Gc-yjI"/>
                             <constraint firstItem="eDc-vn-lpv" firstAttribute="top" secondItem="hzc-xO-Abd" secondAttribute="bottom" constant="35" id="dWt-oJ-7JL"/>
+                            <constraint firstItem="cqC-yu-dxl" firstAttribute="leading" secondItem="9CZ-dV-G2O" secondAttribute="leading" constant="15" id="fUe-c8-zVI"/>
                             <constraint firstItem="55Q-7q-pPg" firstAttribute="leading" secondItem="9CZ-dV-G2O" secondAttribute="leading" id="g2C-WK-3sJ"/>
                             <constraint firstItem="nZV-9P-b3L" firstAttribute="top" secondItem="9CZ-dV-G2O" secondAttribute="top" constant="30" id="q2l-VI-cwJ"/>
                             <constraint firstItem="wED-G4-PLi" firstAttribute="leading" secondItem="2WP-6n-bCX" secondAttribute="trailing" constant="15" id="qy1-gn-8LR"/>
                             <constraint firstItem="9CZ-dV-G2O" firstAttribute="trailing" secondItem="kYu-K3-gAT" secondAttribute="trailing" constant="30" id="wh3-LG-rZC"/>
                             <constraint firstItem="55Q-7q-pPg" firstAttribute="trailing" secondItem="9CZ-dV-G2O" secondAttribute="trailing" id="z7X-H3-0CD"/>
+                            <constraint firstItem="cqC-yu-dxl" firstAttribute="top" secondItem="9CZ-dV-G2O" secondAttribute="top" constant="20" id="zYx-Jf-0IJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9CZ-dV-G2O"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add/Edit" id="ySu-QM-ngS">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="trash" id="3FL-hg-fx4">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="trash" id="3FL-hg-fx4">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="btnDeletePressed:" destination="B0X-zl-Vgm" id="tZE-eU-UZg"/>
@@ -292,6 +304,7 @@
                         <outlet property="tfDetails" destination="hzc-xO-Abd" id="7TR-Y4-rSc"/>
                         <outlet property="tfPrice" destination="wED-G4-PLi" id="grL-kk-dUE"/>
                         <outlet property="tfTitle" destination="nZV-9P-b3L" id="2mV-YB-tBZ"/>
+                        <outlet property="thumgImage" destination="2WP-6n-bCX" id="4eQ-2G-dal"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ni1-xz-rsd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -300,7 +313,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="imagePick" width="300" height="300"/>
+        <image name="addPhoto" width="512" height="512"/>
         <image name="tesla" width="800" height="489"/>
     </resources>
     <inferredMetricsTieBreakers>

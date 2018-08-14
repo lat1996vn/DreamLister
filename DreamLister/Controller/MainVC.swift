@@ -131,16 +131,16 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     
     func generateTestData() {
         let item = Item(context: context)
-        item.title = "Mac"
+        item.title = "MacBook Air"
         item.price = 1000
         item.details = "Can't buy "
         let item2 = Item(context: context)
-        item2.title = "MacPro"
+        item2.title = "MacBook Pro"
         item2.price = 2000
         item2.details = "Can't buy "
         let item3 = Item(context: context)
         item3.title = "BPhone"
-        item3.price = 500
+        item3.price = 700
         item3.details = "Can't buy "
         appDel.saveContext()
     }
